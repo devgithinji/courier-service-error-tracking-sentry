@@ -21,7 +21,7 @@ public class CourierService {
 
 		CourierResponse response = null;
 
-		Sentry.init("https://c6c47c14baed4bc5905d1eb64e67a8bf@sentry.io/1354466");
+		Sentry.init("<dsn>");
 
 		try {
 			if (!isServiceAvailable(request.getPin())) {
@@ -33,7 +33,7 @@ public class CourierService {
 
 		} catch (Exception e) {
 			Sentry.capture(e);
-			return response = new CourierResponse("**", "failure", "couldn't process");
+			return new CourierResponse("**", "failure", "couldn't process");
 
 		}
 		// if everything ok , then call rest API to dispatch courier
